@@ -96,7 +96,7 @@ module Guard
 
       UI.info "Sprockets compiled #{output_filename}"
       Notifier.notify "Sprockets compiled #{output_filename}"
-    rescue ExecJS::ProgramError, ExecJS::RuntimeError => ex
+    rescue ExecJS::ProgramError, ExecJS::RuntimeError, Sass::SyntaxError => ex
       UI.error "Sprockets failed compiling #{output_filename}"
       UI.error ex.message
       Notifier.notify "Sprockets failed compiling #{output_filename}!", priority: 2, image: :failed
